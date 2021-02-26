@@ -1,0 +1,16 @@
+<h1>Welcome to PlexSessions!</h1>
+<h2>This is the home page.</h2>
+
+<body>
+    <dl>
+        <% confessions.forEach((conf)=> { %>
+            <% if (conf.status) { %>
+            <dt> User <%= conf._id %>:
+            </dt>
+            <dd>
+                <%= conf.message %>
+            </dd>
+            <% } %>
+            <% }) %>
+    </dl>
+</body>

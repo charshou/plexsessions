@@ -1,0 +1,19 @@
+<h1>Hello admin</h1>
+<h2>Select posts to accept and reject</h2>
+
+<body>
+        <% confessions.forEach((conf)=> { %>
+            <% if (!conf.status){ %>
+            <form action="/admin/login" method="POST">
+            <div>
+            <div><input name="uid" value=<%= conf._id %> readonly /></div>
+            <div><label name="message"><%= conf.message %></label></div>
+            <div style>
+            <input type="submit" name="buttonval" value="Accept" />
+            <input type="submit" name="buttonval" value="Reject" />
+            </div>
+            </div>
+            </form>
+            <% } %>
+            <% }) %>
+</body>
