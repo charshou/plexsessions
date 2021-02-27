@@ -15,7 +15,7 @@ app.set("views", path.join(__dirname, "./views"))
 
 const dburi = "mongodb+srv://charlie:test123@nodetuts.zbhsp.mongodb.net/node-tuts?retryWrites=true&w=majority"
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(process.env.port || port, () => {
+    .then((result) => app.listen(process.env.PORT || port, () => {
         console.log(`Listening on port ${port}.`)
     }))
     .catch((err) => console.log(err))
