@@ -39,9 +39,7 @@ module.exports = () => {
 
     router.post("/login", (req, res) => {
         const entry = req.body;
-        console.log(entry)
         if (entry.buttonval == "Accept") {
-            console.log(12323)
             Confession.findById(entry.uid, (err, doc) => {
                 doc.status = true;
                 doc.save()
@@ -53,14 +51,13 @@ module.exports = () => {
         } else if (entry.buttonval == "Reject") {
             Confession.findOneAndRemove({_id: entry.uid}, (err, doc) => {
                 if (err) {
-                    console.log(err)
-                } else{
-                    return res.status(200).send();
-                }
+                    console.log(err);
+                } 
+                return res.status(200).send();
             });
         }
         return res.redirect("back");
     });
 
-    return router
+    return router;
 };
