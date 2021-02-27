@@ -13,7 +13,7 @@ module.exports = () => {
 
     router.get("/api", (req, res) => {
         res.send(res.locals.confessions.filter((entry) => {
-            return entry.status
+            return entry.status;
         }));
     })
 
