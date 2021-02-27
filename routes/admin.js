@@ -36,7 +36,7 @@ module.exports = () => {
         adminAccess = checkLogin(req.body.name, req.body.pass);
         return res.redirect("/admin");
     })
-
+    
     router.post("/login", (req, res) => {
         const entry = req.body;
         if (entry.buttonval == "Accept") {
