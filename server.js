@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose")
 const path = require("path");
 const bodyParser = require("body-parser");
+const config = require("./config");
 
 const routes = require("./routes/index")
 
@@ -13,7 +14,7 @@ const port = 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"))
 
-const dburi = "mongodb+srv://charlie:test123@nodetuts.zbhsp.mongodb.net/node-tuts?retryWrites=true&w=majority"
+const dburi = config.key;
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => app.listen(process.env.PORT || port, () => {
         console.log(`Listening on port ${port}.`)
